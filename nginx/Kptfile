@@ -21,7 +21,15 @@ info:
     - kpt-team@google.com
   description: This is an example nginx package.
 pipeline:
+  mutators:
+    - image: gcr.io/kpt-fn/set-labels:v0.1
+      configMap:
+        env: dev
   validators:
     - image: gcr.io/kpt-fn/kubeval:v0.1
       configMap:
         strict: "true"
+inventory:
+  namespace: default
+  name: inventory-38521987
+  inventoryID: 10d6a4aad2a506cc518f35b575013bf6ffc7654f-1625233701787449000
