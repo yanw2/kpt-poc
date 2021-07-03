@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: helloworld-set
+upstream:
+  type: git
+  git:
+    repo: https://github.com/GoogleContainerTools/kpt
+    directory: /package-examples/helloworld-set
+    ref: package-examples/helloworld-set/v0.3.0
+  updateStrategy: resource-merge
