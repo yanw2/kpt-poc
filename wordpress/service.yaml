@@ -1,4 +1,4 @@
-# Copyright 2021 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,27 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-apiVersion: apps/v1
-kind: Deployment
-metadata: # kpt-merge: /my-nginx
-  name: my-nginx
+apiVersion: v1
+kind: Service
+metadata: # kpt-merge: /wordpress
+  name: wordpress
   labels:
-    env: dev
+    app: wordpress
 spec:
-  replicas: 4
+  type: LoadBalancer
   selector:
-    matchLabels:
-      env: dev
-      app: my-nginx
-  template:
-    metadata:
-      labels:
-        env: dev
-        app: my-nginx
-    spec:
-      containers:
-        - name: nginx
-          image: nginx:1.16.1
-          ports:
-            - protocol: TCP
-              containerPort: 80
+    app: wordpress
+    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80

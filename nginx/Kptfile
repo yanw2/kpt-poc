@@ -7,15 +7,15 @@ upstream:
   git:
     repo: https://github.com/GoogleContainerTools/kpt
     directory: package-examples/nginx
-    ref: v0.7
+    ref: v0.8
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
     repo: https://github.com/GoogleContainerTools/kpt
     directory: package-examples/nginx
-    ref: package-examples/nginx/v0.7
-    commit: 88796824e8eb3a3c5c880ed7dcd303d244579b51
+    ref: package-examples/nginx/v0.8
+    commit: e89612226cecc5903b4cec2ffaf966f143aa5868
 info:
   emails:
     - kpt-team@google.com
